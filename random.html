@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Number Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .output {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lụm 5 loét</h1>
+      <button onclick="generateRandomNumbers()">Tiền về</button>
+      <div class="output" id="output"></div>
+    </div>
+    <script>
+      function generateRandomNumbers() {
+        let output = document.getElementById("output");
+        output.innerHTML = "";
+
+        for (let i = 0; i < 30; i++) {
+          let randomNumbers = [];
+          for (let j = 0; j < 5; j++) {
+            randomNumbers.push(Math.floor(Math.random() * 900) + 100);
+          }
+          let randomNumbersString = randomNumbers.join(" ");
+          let paragraph = document.createElement("p");
+          paragraph.textContent = randomNumbersString;
+          output.appendChild(paragraph);
+        }
+      }
+    </script>
+  </body>
+</html>
