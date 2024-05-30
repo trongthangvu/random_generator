@@ -27,6 +27,7 @@
   <body>
     <div class="container">
       <h1>Lụm số ngẫu nhiên</h1>
+      <button onclick="generateRandomNumbers(2)">2 số</button>
       <button onclick="generateRandomNumbers(3)">3 số</button>
       <button onclick="generateRandomNumbers(4)">4 số</button>
       <div class="output" id="output"></div>
@@ -39,7 +40,9 @@
         for (let i = 0; i < 1; i++) {
           let randomNumbers = [];
           for (let j = 0; j < 5; j++) {
-            if (digitCount === 3) {
+            if (digitCount === 2) {
+              randomNumbers.push(Math.floor(Math.random() * 90) + 10);
+            } else if (digitCount === 3) {
               randomNumbers.push(Math.floor(Math.random() * 900) + 100);
             } else if (digitCount === 4) {
               randomNumbers.push(Math.floor(Math.random() * 9000) + 1000);
