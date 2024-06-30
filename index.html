@@ -51,17 +51,20 @@
         output.innerHTML = "";
 
         for (let i = 0; i < 1; i++) {
-          let randomNumbers = [];
-          for (let j = 0; j < 5; j++) {
+          let randomNumbers = new Set();
+          while (randomNumbers.size < 5) {
+            let randomNumber;
             if (digitCount === 2) {
-              randomNumbers.push(Math.floor(Math.random() * 90) + 10);
+              randomNumber = Math.floor(Math.random() * 90) + 10;
             } else if (digitCount === 3) {
-              randomNumbers.push(Math.floor(Math.random() * 900) + 100);
+              randomNumber = Math.floor(Math.random() * 900) + 100;
             } else if (digitCount === 4) {
-              randomNumbers.push(Math.floor(Math.random() * 9000) + 1000);
+              randomNumber = Math.floor(Math.random() * 9000) + 1000;
             }
+            randomNumbers.add(randomNumber);
           }
-          let randomNumbersString = randomNumbers.join(" ");
+          let randomNumbersArray = Array.from(randomNumbers);
+          let randomNumbersString = randomNumbersArray.join(" ");
           let paragraph = document.createElement("p");
           paragraph.textContent = randomNumbersString;
           output.appendChild(paragraph);
